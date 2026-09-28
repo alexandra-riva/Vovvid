@@ -87,13 +87,20 @@
   }
 
   h1,
-  h2,
-  h3 {
+  h2 {
     font-family: var(--font-display);
     font-weight: 700;
     color: var(--color-foreground);
     letter-spacing: -0.02em;
     line-height: 1.08;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-foreground);
+    letter-spacing: 0;
+    line-height: 1.3;
   }
 }
 
