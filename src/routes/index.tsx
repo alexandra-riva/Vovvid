@@ -174,20 +174,13 @@ function Index() {
       </main>
 
       <footer className="mx-auto max-w-5xl border-t border-border px-6 py-10 text-[14px] text-secondary-foreground">
-        <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <span>{t.footer.line}</span>
-          <span>·</span>
-          <a
-            href={`mailto:${t.footer.email}`}
-            className="text-accent hover:opacity-80"
-          >
-            {t.footer.email}
-          </a>
-          <span>·</span>
-          <Link to="/privacy" className="text-accent hover:opacity-80">
-            {t.footer.privacy}
-          </Link>
-        </p>
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span>{t.footer.line}</span>
+            <span>·</span>
+            <Link to="/privacy" className="text-accent hover:opacity-80">
+              {t.footer.privacy}
+            </Link>
+          </p>
       </footer>
     </div>
   );
