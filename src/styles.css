@@ -28,8 +28,8 @@
   --color-error: var(--vv-error);
   --color-warning: var(--vv-warning);
   --color-info: var(--vv-info);
-  --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Urbanist", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Epilogue", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
