@@ -60,7 +60,7 @@ export const content = {
     },
     story: {
       title: "Vår historia",
-      text: "Vi är hundvakter från Rissne och Stockholm. Alexandra har passat hundar i Rissne sedan 2022: 52 bokningar och 29 kunder. Vi såg hur mycket apparna tar och hur lite de hjälper. Så vi bygger vår egen.",
+      text: "Det här började med vår egen erfarenhet som hundvakter, och en känsla av att apparna som redan finns inte riktigt löser det. Otydliga priser, inget riktigt sätt att veta vem man kan lita på, och inte mycket för hundvakter som tar det här på allvar. Istället för att gissa oss till en lösning frågade vi runt, många samtal med hundägare och hundvakter om vad som faktiskt saknades. Det var det som fick oss att bygga något eget, med en tydligare bild av hur förtroende och rättvisa faktiskt borde se ut.",
       people: [
         "Alexandra Riva, grundare",
         "Gaia Carradori, medgrundare",
@@ -152,7 +152,7 @@ export const content = {
     },
     story: {
       title: "Our story",
-      text: "We're dog sitters from Rissne and Stockholm. Alexandra has sat dogs in Rissne since 2022: 52 bookings and 29 clients. We saw how much the apps take and how little they help. So we're building our own.",
+      text: "This started with our own experience as dog sitters, and a feeling that the apps out there weren't quite getting it right: unclear pricing, no real way to know who you can trust, not much for sitters who take it seriously. Instead of assuming we knew the fix, we asked around, a lot of conversations with dog owners and sitters about what was actually missing. That's what pushed us to build something of our own, with a clearer idea of what trust and fairness should actually look like.",
       people: [
         "Alexandra Riva, founder",
         "Gaia Carradori, co-founder",
