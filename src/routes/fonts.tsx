@@ -108,7 +108,7 @@ function SamplePanel({
 }) {
   return (
     <section
-      style={pairing.vars}
+      style={{ ...pairing.vars, fontFamily: "var(--font-sans)" }}
       className={`overflow-hidden rounded-[16px] border border-border bg-card ${
         mode === "mobile" ? "min-w-0" : ""
       }`}
