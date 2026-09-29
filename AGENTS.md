@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- The header uses the supplied day/night GIFs for the exact branded tail motion, with the static SVG shown when reduced motion is preferred.
