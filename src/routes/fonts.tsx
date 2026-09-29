@@ -20,7 +20,7 @@ export const Route = createFileRoute("/fonts")({
     links: [
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700&family=Epilogue:wght@400;500;600&display=swap",
       },
     ],
   }),
@@ -29,22 +29,22 @@ export const Route = createFileRoute("/fonts")({
 
 const sv = content.sv;
 
-/** Pairing A — current: Urbanist headings, Epilogue body (site defaults). */
+/** Pairing A — current: Instrument Sans headings, Inter body (site defaults). */
 const CURRENT = {
-  label: "Nuvarande — Urbanist + Epilogue",
-  vars: {
-    "--font-display": '"Urbanist", ui-sans-serif, system-ui, sans-serif',
-    "--font-sans": '"Epilogue", ui-sans-serif, system-ui, sans-serif',
-  } as React.CSSProperties,
-};
-
-/** Pairing B — candidate: Instrument Sans headings, Inter body. */
-const ALTERNATE = {
-  label: "Alternativ — Instrument Sans + Inter",
+  label: "Nuvarande — Instrument Sans + Inter",
   vars: {
     "--font-display":
       '"Instrument Sans", ui-sans-serif, system-ui, sans-serif',
     "--font-sans": '"Inter", ui-sans-serif, system-ui, sans-serif',
+  } as React.CSSProperties,
+};
+
+/** Pairing B — candidate: Urbanist headings, Epilogue body. */
+const ALTERNATE = {
+  label: "Alternativ — Urbanist + Epilogue",
+  vars: {
+    "--font-display": '"Urbanist", ui-sans-serif, system-ui, sans-serif',
+    "--font-sans": '"Epilogue", ui-sans-serif, system-ui, sans-serif',
   } as React.CSSProperties,
 };
 
