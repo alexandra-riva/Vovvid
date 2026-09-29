@@ -1,13 +1,12 @@
 @import "tailwindcss" source(none);
+@import "./styles/palette.css";
 @source "../src";
 
 @custom-variant night (&:is(.night *));
 
 /*
- * VovvID design system.
- * Day = sand background, Night = wine background.
- * Never pure white, never pure black.
- * Green is reserved for "verified" only. Red is not used.
+ * VovvID design system. All colours come from styles/palette.css.
+ * Day = sand surfaces, Night = wine surfaces. One light, one dark.
  */
 
 @theme inline {
@@ -22,50 +21,43 @@
   --color-verified: var(--verified);
   --color-button: var(--button);
   --color-button-foreground: var(--button-foreground);
+  --color-wine: var(--vv-wine);
+  --color-sand: var(--vv-sand);
+  --color-wine-deep: var(--vv-wine-deep);
+  --color-rosa: var(--vv-rosa-flat);
+  --color-error: var(--vv-error);
+  --color-warning: var(--vv-warning);
+  --color-info: var(--vv-info);
   --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --background: oklch(0.917 0.0355 72.19); /* #F4E5D4 sand */
-  --foreground: oklch(0.2718 0.1235 359.11); /* #4B092A wine */
-  --body: oklch(0.3693 0.0234 358.2); /* #4A3F43 */
-  --secondary-foreground: oklch(0.6216 0.0141 356.6); /* #908689 */
-  --border: oklch(0.8517 0.006 342.5); /* #D6CFD1 */
-  --card: oklch(0.9639 0.0035 342.5); /* #F6F2F3 */
-  --accent: oklch(0.4666 0.1455 8.56); /* #A32F50 */
-  --verified: oklch(0.4998 0.1385 154.3); /* #00823E */
-  --button: oklch(0.2718 0.1235 359.11);
-  --button-foreground: oklch(0.917 0.0355 72.19);
-  --gradient-accent: linear-gradient(
-    90deg,
-    #b74362,
-    #c84b59,
-    #d45950,
-    #da6c4d,
-    #da8154
-  );
+  --background: var(--vv-sand);
+  --foreground: var(--vv-wine);
+  --body: var(--vv-grey-60);
+  --secondary-foreground: var(--vv-grey-40);
+  --border: var(--vv-grey-20);
+  --card: var(--vv-sand);
+  --accent: var(--vv-rosa-flat);
+  --verified: var(--vv-verified);
+  --button: var(--vv-wine);
+  --button-foreground: var(--vv-sand);
+  --gradient-accent: linear-gradient(90deg, var(--vv-rosa-0), var(--vv-rosa-1), var(--vv-rosa-2), var(--vv-rosa-3), var(--vv-rosa-4));
 }
 
 .night {
-  --background: oklch(0.2718 0.1235 359.11); /* #4B092A wine */
-  --foreground: oklch(0.917 0.0355 72.19); /* #F4E5D4 sand */
-  --body: oklch(0.917 0.0355 72.19 / 80%);
-  --secondary-foreground: oklch(0.917 0.0355 72.19 / 60%);
-  --border: oklch(0.917 0.0355 72.19 / 15%);
-  --card: oklch(0.2031 0.1046 356.3); /* #2E0015 */
-  --accent: oklch(0.7024 0.1621 5.53); /* #F06C8F */
-  --verified: oklch(0.8103 0.1665 152.6); /* #5ED385 */
-  --button: oklch(0.917 0.0355 72.19);
-  --button-foreground: oklch(0.2718 0.1235 359.11);
-  --gradient-accent: linear-gradient(
-    90deg,
-    #f06c8f,
-    #ff7582,
-    #ff8576,
-    #ff9a72,
-    #ffb17b
-  );
+  --background: var(--vv-wine);
+  --foreground: var(--vv-sand);
+  --body: color-mix(in oklab, var(--vv-sand) 80%, transparent);
+  --secondary-foreground: color-mix(in oklab, var(--vv-sand) 60%, transparent);
+  --border: color-mix(in oklab, var(--vv-sand) 15%, transparent);
+  --card: var(--vv-wine);
+  --accent: var(--vv-rosa-dark-0);
+  --verified: var(--vv-verified-on-dark);
+  --button: var(--vv-sand);
+  --button-foreground: var(--vv-wine);
+  --gradient-accent: linear-gradient(90deg, var(--vv-rosa-dark-0), var(--vv-rosa-dark-1), var(--vv-rosa-dark-2), var(--vv-rosa-dark-3), var(--vv-rosa-dark-4));
 }
 
 @layer base {

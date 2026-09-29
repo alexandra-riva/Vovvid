@@ -1,0 +1,44 @@
+:root {
+  /* brand */
+  --vv-wine: #4B092A;
+  --vv-sand: #F4E5D4;
+  --vv-wine-deep: #2E0015;
+
+  /* the ID gradient - use all five stops */
+  --vv-rosa-0: #B74362;
+  --vv-rosa-1: #C84B59;
+  --vv-rosa-2: #D45950;
+  --vv-rosa-3: #DA6C4D;
+  --vv-rosa-4: #DA8154;
+  --vv-rosa-dark-0: #F06C8F;
+  --vv-rosa-dark-1: #FF7582;
+  --vv-rosa-dark-2: #FF8576;
+  --vv-rosa-dark-3: #FF9A72;
+  --vv-rosa-dark-4: #FFB17B;
+  --vv-rosa-flat: #A32F50;
+  --vv-id-gradient: linear-gradient(28deg, #B74362, #C84B59, #D45950, #DA6C4D, #DA8154);
+  --vv-id-gradient-dark: linear-gradient(28deg, #F06C8F, #FF7582, #FF8576, #FF9A72, #FFB17B);
+
+  /* neutrals - the wine's hue at very low chroma */
+  --vv-grey-00: #FFFDFD;
+  --vv-grey-05: #F6F2F3;
+  --vv-grey-10: #E8E3E5;
+  --vv-grey-20: #D6CFD1;
+  --vv-grey-30: #B7AFB1;
+  --vv-grey-40: #908689;
+  --vv-grey-50: #6A6063;
+  --vv-grey-60: #4A3F43;
+  --vv-grey-70: #2D2225;
+
+  /* states */
+  --vv-verified: #00823E;
+  --vv-verified-on-dark: #5ED385;
+  --vv-error: #B40033;
+  --vv-error-on-dark: #FF5F6F;
+  --vv-warning: #A46400;
+  --vv-warning-on-dark: #F6B933;
+  --vv-info: #4375A7;
+  --vv-info-on-dark: #82B6EC;
+  --vv-disabled: #B7AFB1;
+  --vv-disabled-on-dark: #585053;
+}
