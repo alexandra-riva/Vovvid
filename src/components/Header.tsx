@@ -1,10 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Moon, Sun } from "lucide-react";
-import { Logo } from "./Logo";
+import VovvIdWag from "./VovvIdWag";
 import { useSite } from "@/lib/site";
 import { content } from "@/lib/content";
-import dayLogo from "@/assets/vovvid-wag-lightt.gif.asset.json";
-import nightLogo from "@/assets/vovvid-wag-wine.gif.asset.json";
 
 export function Header() {
   const { lang, setLang, theme, toggleTheme } = useSite();
@@ -13,12 +11,11 @@ export function Header() {
   return (
     <header className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-7">
       <Link to="/" aria-label="VovvID" className="min-w-0 shrink-0">
-        <img
-          src={theme === "day" ? dayLogo.url : nightLogo.url}
-          alt=""
-          className="h-8 w-auto motion-reduce:hidden"
+        <VovvIdWag
+          key={theme}
+          variant={theme === "day" ? "light" : "wine"}
+          height={40}
         />
-        <Logo theme={theme} className="hidden h-8 w-auto motion-reduce:block" />
       </Link>
 
       <div className="flex shrink-0 items-center gap-5">

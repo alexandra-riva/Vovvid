@@ -9,4 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- The header uses the supplied day/night GIFs for the exact branded tail motion, with the static SVG shown when reduced motion is preferred.
+- The logo is rendered only by VovvIdWag (path-morph tail, plays once); all colours come from src/styles/palette.css tokens.

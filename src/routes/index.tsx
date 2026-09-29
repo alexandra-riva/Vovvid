@@ -96,10 +96,10 @@ function Index() {
             {t.fees.headline}
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            <div className="rounded-[16px] bg-card px-6 py-7">
+            <div className="rounded-[16px] border border-border bg-card px-6 py-7">
               <p className="text-[18px] text-foreground">{t.fees.owner}</p>
             </div>
-            <div className="rounded-[16px] bg-card px-6 py-7">
+            <div className="rounded-[16px] border border-border bg-card px-6 py-7">
               <p className="text-[18px] text-foreground">{t.fees.sitter}</p>
             </div>
           </div>
