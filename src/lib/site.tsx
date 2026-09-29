@@ -33,8 +33,10 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     const storedTheme = localStorage.getItem(THEME_KEY);
     if (storedTheme === "day" || storedTheme === "night") {
       setTheme(storedTheme);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("night");
+    } else {
+      // First visit: follow the clock — night (wine) from 19:00 to 07:00.
+      const hour = new Date().getHours();
+      if (hour >= 19 || hour < 7) setTheme("night");
     }
   }, []);
 
