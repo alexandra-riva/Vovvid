@@ -85,12 +85,11 @@ export const content = {
     },
     footer: {
       line: "© 2026 VovvID · Stockholm",
-      email: "alexandra.riva@yahoo.com",
       privacy: "Integritet",
     },
     privacyPage: {
       title: "Integritet",
-      text: "VovvID är ännu inte ett registrerat företag. Ansvarig för uppgifterna är Alexandra Riva (alexandra.riva@yahoo.com). Vi sparar din e-post, din roll och ditt område (om du anger det) för att bjuda in dig till betan. Vi delar dem inte med någon och säljer dem aldrig. Vi sparar dem tills betan är klar eller tills du ber oss radera dem. Mejla oss för att se, ändra eller radera dina uppgifter.",
+      text: "Vi sparar din e-post, din roll och ditt område (om du anger det) för att bjuda in dig till betan. Vi delar dem inte med någon och säljer dem aldrig. Vi sparar dem tills betan är klar eller tills du ber oss radera dem.",
       back: "Tillbaka",
     },
   },
@@ -178,12 +177,11 @@ export const content = {
     },
     footer: {
       line: "© 2026 VovvID · Stockholm",
-      email: "alexandra.riva@yahoo.com",
       privacy: "Privacy",
     },
     privacyPage: {
       title: "Privacy",
-      text: "VovvID is not a registered company yet. The person responsible for your data is Alexandra Riva (alexandra.riva@yahoo.com). We store your email, your role and your area (if you give it) to invite you to the beta. We never share or sell them. We keep them until the beta is over or until you ask us to delete them. Email us to see, change or delete your data.",
+      text: "We store your email, your role and your area (if you give it) to invite you to the beta. We never share or sell them. We keep them until the beta is over or until you ask us to delete them.",
       back: "Back",
     },
   },
