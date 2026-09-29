@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FontsRouteImport } from './routes/fonts'
 import { Route as LogoRouteImport } from './routes/logo'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FontsRoute = FontsRouteImport.update({
+  id: '/fonts',
+  path: '/fonts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LogoRoute = LogoRouteImport.update({
@@ -31,30 +37,34 @@ const PrivacyRoute = PrivacyRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/fonts': typeof FontsRoute
   '/logo': typeof LogoRoute
   '/privacy': typeof PrivacyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/fonts': typeof FontsRoute
   '/logo': typeof LogoRoute
   '/privacy': typeof PrivacyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/fonts': typeof FontsRoute
   '/logo': typeof LogoRoute
   '/privacy': typeof PrivacyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/logo' | '/privacy'
+  fullPaths: '/' | '/fonts' | '/logo' | '/privacy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/logo' | '/privacy'
-  id: '__root__' | '/' | '/logo' | '/privacy'
+  to: '/' | '/fonts' | '/logo' | '/privacy'
+  id: '__root__' | '/' | '/fonts' | '/logo' | '/privacy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FontsRoute: typeof FontsRoute
   LogoRoute: typeof LogoRoute
   PrivacyRoute: typeof PrivacyRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fonts': {
+      id: '/fonts'
+      path: '/fonts'
+      fullPath: '/fonts'
+      preLoaderRoute: typeof FontsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/logo': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FontsRoute: FontsRoute,
   LogoRoute: LogoRoute,
   PrivacyRoute: PrivacyRoute,
 }
