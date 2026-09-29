@@ -8,7 +8,7 @@
 // Brand: wine #4B092A · sand #F4E5D4. The ID gradient is five stops, not two —
 // a two-stop blend loses chroma in the middle and goes grey.
 
-import { useId } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 
 type Variant = "light" | "wine";
 
@@ -19,8 +19,12 @@ export interface VovvIdWagProps {
   height?: number;
   /** Draw the background rect. Off by default so it sits on your own surface. */
   withBackground?: boolean;
-  /** Loop forever. Don't — a looping logo is noise. Play it once on load. */
+  /** Wag continuously. On by default. Set false for a single wag on load. */
   loop?: boolean;
+  /** Only when loop is false: wag again when pointed at or focused. */
+  replayOnHover?: boolean;
+  /** Only when loop is false: ms after mount before the single wag. */
+  delay?: number;
   className?: string;
 }
 
@@ -55,7 +59,9 @@ export default function VovvIdWag({
   variant = "light",
   height = 64,
   withBackground = false,
-  loop = false,
+  loop = true,
+  replayOnHover = true,
+  delay = 350,
   className,
 }: VovvIdWagProps) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
@@ -65,11 +71,40 @@ export default function VovvIdWag({
   const ground = variant === "wine" ? WINE : SAND;
   const stops = variant === "wine" ? ROSA_WINE : ROSA_LIGHT;
 
-  // Honour the OS setting. A brand mark is never worth overriding this for.
-  const reduced =
-    typeof window !== "undefined" &&
-    typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const animRef = useRef<SVGAnimationElement | null>(null);
+
+  // Resolved after mount, never during render — reading matchMedia while
+  // rendering makes the server and client disagree and React discards the
+  // hydrated markup.
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const onChange = () => setReduced(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  const play = useCallback(() => {
+    const el = animRef.current;
+    if (!el || reduced || loop) return;
+    // beginElement is what actually starts an indefinite SMIL animation.
+    try {
+      el.beginElement();
+    } catch {
+      /* SMIL unsupported; the tail just stays at rest */
+    }
+  }, [reduced, loop]);
+
+  // Single wag, once the page has settled.
+  useEffect(() => {
+    if (reduced || loop) return;
+    const id = window.setTimeout(play, delay);
+    return () => window.clearTimeout(id);
+  }, [play, reduced, loop, delay]);
+
+  const hover = replayOnHover && !reduced && !loop ? play : undefined;
 
   return (
     <svg
@@ -78,6 +113,8 @@ export default function VovvIdWag({
       role="img"
       aria-label="VovvID"
       className={className}
+      onMouseEnter={hover}
+      onFocus={hover}
       style={{ display: "block", overflow: "visible" }}
     >
       <defs>
@@ -110,9 +147,10 @@ export default function VovvIdWag({
       <path d={TAIL_FRAMES[0]} fill={ink}>
         {!reduced && (
           <animate
+            ref={animRef as never}
             attributeName="d"
             dur="1.6s"
-            begin="0s"
+            begin={loop ? "0s" : "indefinite"}
             repeatCount={loop ? "indefinite" : 1}
             fill="freeze"
             calcMode="spline"
